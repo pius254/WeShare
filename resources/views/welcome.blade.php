@@ -4,92 +4,52 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <title>WeShare</title>
 
-        <title>Laravel</title>
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
-                    @endif
-                </div>
-            @endif
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
+        @include('partials.nav')
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+        <!-- Header :Start -->
+        <div id="header" class="fullheight">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="banner text-center">
+                            <h1 class="wow fadeInDown animated text-uppercase" data-wow-delay="1s">Welcome To WeShare. </h1>
+                            <h2 class="wow fadeInUp animated text-uppercase" data-wow-delay=".6s">A New Way To Share Files And Interact</h2>
+                            <a href="#footer">
+                                <i class="fa fa-angle-double-down fa-2x wow fadeInUp animated" data-wow-delay="1.2s"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+        <!-- Header :End -->
+
+        <!-- About :Start -->
+        <section id="about" class="fullheight">
+            <div class="container">
+                <div class="row">
+                    <h1 class="text-uppercase text-center wow fadeInLeft animated" data-wow-delay="1s">about us</h1>
+
+                </div>
+            </div>
+        </section>
+
+        @include('partials.footer')
+
+    <script type="text/javascript" src="{{ asset('js/libs/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/libs/wow.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/libs/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/libs/script.js') }}"></script>
+
     </body>
 </html>
