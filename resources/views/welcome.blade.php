@@ -39,10 +39,27 @@
             <div class="container">
                 <div class="row">
                     <h1 class="text-uppercase text-center wow fadeInLeft animated" data-wow-delay="1s">about us</h1>
-
                 </div>
             </div>
         </section>
+        <!-- About :End -->
+
+        <!-- Registration :Start -->
+         <section id="registration" class="fullheight">
+            <div class="container">
+                <div class="row">
+                    <h1 class="text-uppercase text-center wow fadeInDown animated" data-wow-delay="1s">create an account</h1>
+                    <div class="col-sm-6 col-md-6">
+                        <h1><strong>REGISTER</strong></h1>
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-md-offset-2">
+                        <h1><strong>LOGIN</strong></h1>
+                    </div>
+                </div>
+            </div>
+             
+         </section>
+         <!-- Registration :End -->
 
         @include('partials.footer')
 
