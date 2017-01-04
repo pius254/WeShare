@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/register', 'RegisterController@showRegister');
+Route::group(['middleware' => ['web']], function(){
+	Route::get('/login', ['as' => 'login', 'users' => 'AuthController@login']);
+	Route::get('/handleLogin', ['as' => 'handleLogin', 'users' => 'AuthController@handleLogin']);
 
-Route::post('/register', 'RegisterController@doRegister');
+	Route::get('/register', ['as' => 'register', 'users' => 'AuthController@register']);
+	Route::get('/handleRegister', ['as' => 'handleRegister', 'users' => 'AuthController@handleRegister']);
+});

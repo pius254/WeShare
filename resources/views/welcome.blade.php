@@ -48,18 +48,74 @@
          <section id="registration" class="fullheight">
             <div class="container">
                 <div class="row">
-                    <h1 class="text-uppercase text-center wow fadeInDown animated" data-wow-delay="1s">create an account</h1>
+                    <h1 class="text-uppercase text-center wow fadeInDown animated" data-wow-delay="2s">create account</h1>
                     <div class="col-sm-6 col-md-6">
                         <h1><strong>REGISTER</strong></h1>
+                        {!! Form::open(array('route' => 'handleRegister')) !!}
+
+                        <div class="form-group">
+                            {!! Form::label('First Name') !!}
+                            {!! Form::text('First Name', null, array('class' => 'form-control')) !!}
+                        </div>
+
+                        <div class="form-group">
+                            {!! Form::label('Last Name') !!}
+                            {!! Form::text('Last Name', null, array('class' => 'form-control')) !!}
+                        </div>
+
+                        <div class="form-group">
+                            {!! Form::label('Username') !!}
+                            {!! Form::text('Username', null, array('class' => 'form-control')) !!}
+                        </div>
+
+                        <div class="form-group">
+                            {!! Form::label('Phone Number') !!}
+                            {!! Form::number('Phone Number', null, array('class' => 'form-control')) !!}
+                        </div>
+
+                        <div class="form-group">
+                            {!! Form::label('email') !!}
+                            {!! Form::email('email', null, array('class' => 'form-control')) !!}
+                        </div>
+
+                        <div class="form-group">
+                            {!! Form::label('password') !!}
+                            {!! Form::password('password', array('class' => 'form-control')) !!}
+                        </div>
+                            
+                            {!! Form::token() !!}
+                            {!! Form::submit('Register', array('class' => 'btn btn-primary')) !!}
+
+                        {!! Form::close() !!}
                     </div>
+
+                    <div class="clear-fix"></div>
+
                     <div class="col-sm-4 col-md-4 col-md-offset-2">
                         <h1><strong>LOGIN</strong></h1>
+                        {!! Form::open(array('route' => 'handleLogin')) !!}
+
+                        <div class="form-group">
+                            {!! Form::label('email') !!}
+                            {!! Form::text('email', null, array('class' => 'form-control')) !!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('password') !!}
+                            {!! Form::password('password', array('class' => 'form-control')) !!}
+                        </div>
+                            
+                            {!! Form::token() !!}
+                            {!! Form::submit('Log In', array('class' => 'btn btn-primary')) !!}
+
+                        {!! Form::close() !!}
                     </div>
                 </div>
             </div>
              
          </section>
          <!-- Registration :End -->
+
+         <div class="clear-fix"></div>
 
         @include('partials.footer')
 
