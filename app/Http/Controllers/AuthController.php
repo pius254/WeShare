@@ -14,4 +14,15 @@ class AuthController extends Controller
     {
     	return view('welcome');
     }
+
+    public function handleLogin(Request $request)
+    {
+    	$data = $request->only('email', 'password');
+    	if (\Auth::attempt($data)) {
+    		return 'You Logged in';
+    		return redirect()->intended('sidebar');
+    	}
+
+    	return back()->withInput();
+    }
 }

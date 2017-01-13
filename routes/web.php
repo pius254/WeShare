@@ -16,9 +16,9 @@ Route::get('/', function () {
 });
 
 Route::group(['middleware' => ['web']], function(){
-	Route::get('/login', ['as' => 'login', 'users' => 'AuthController@login']);
-	Route::get('/handleLogin', ['as' => 'handleLogin', 'users' => 'AuthController@handleLogin']);
+	Route::get('/login', ['as' => 'login', 'uses' => 'AuthController@login']);
+	Route::post('/handleLogin', ['as' => 'handleLogin', 'uses' => 'AuthController@handleLogin']);
 
-	Route::get('/register', ['as' => 'register', 'users' => 'AuthController@register']);
-	Route::get('/handleRegister', ['as' => 'handleRegister', 'users' => 'AuthController@handleRegister']);
+	Route::get('/register', ['as' => 'register', 'uses' => 'AuthController@register']);
+	Route::get('/handleRegister', ['as' => 'handleRegister', 'uses' => 'AuthController@handleRegister']);
 });
