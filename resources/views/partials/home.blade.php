@@ -128,7 +128,7 @@
                       </a>
                     </li>
                     <li><a href="javascript:;">Help</a></li>
-                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                    <li><span><a><i class="fa fa-sign-out pull-right"></i>{{ link_to_route('logout', 'Log Out') }}</a></span></li>
                   </ul>
                 </li>
                   </ul>

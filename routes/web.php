@@ -18,6 +18,7 @@ Route::get('/', function () {
 Route::group(['middleware' => ['web']], function(){
 	Route::get('/login', ['as' => 'login', 'uses' => 'AuthController@login']);
 	Route::post('/handleLogin', ['as' => 'handleLogin', 'uses' => 'AuthController@handleLogin']);
+	Route::get('/logout', ['as' => 'logout', 'uses' => 'AuthController@logout']);
 
 	Route::get('/register', ['as' => 'register', 'uses' => 'AuthController@register']);
 	Route::post('/handleRegister', ['as' => 'handleRegister', 'uses' => 'AuthController@handleRegister']);
