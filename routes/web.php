@@ -20,8 +20,7 @@ Route::group(['middleware' => ['web']], function(){
 	Route::post('/handleLogin', ['as' => 'handleLogin', 'uses' => 'AuthController@handleLogin']);
 	Route::get('/logout', ['as' => 'logout', 'uses' => 'AuthController@logout']);
 
-	Route::get('/register', ['as' => 'register', 'uses' => 'AuthController@register']);
-	Route::post('/handleRegister', ['as' => 'handleRegister', 'uses' => 'AuthController@handleRegister']);
+	Route::resource('users', 'UsersController', ['only' => ['create', 'store']]);
 
 	Route::get('/home', ['middleware' => 'auth', 'as' => 'home', 'uses' => 'UsersController@home']);
 });

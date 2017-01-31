@@ -24,8 +24,11 @@ class UsersTableSeeder extends Seeder
 		}*/
 		\DB::table('users')->delete();
 		User::create([
-			'name' => 'pius',
+			'first name' => 'pius',
+			'last name' => 'wanjiru',
 			'email' => 'piuswanjiru1@gmail.com',
+			'username' => 'kaboom',
+			'phone number' => '0721886636',
 			'password' => bcrypt('pius'),
 			'remember_token' => str_random(50)
 		]);
