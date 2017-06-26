@@ -17,6 +17,7 @@
     <link  rel="stylesheet" href="{{ asset('css/nprogress.css') }}">
     <!-- jQuery custom content scroller -->
     <link rel="stylesheet" href="{{ asset('css/jquery.mCustomScrollbar.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
     <!-- Custom Theme Style -->
     <link rel="stylesheet" href="{{ asset('css/custom.min.css') }}">
@@ -40,7 +41,7 @@
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
-                <h2>{{ \Auth::user()->name }}</h2>
+                <h2>{{ \Auth::user()->username }}</h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -152,7 +153,7 @@
         <!-- /page content -->
 
         <!-- footer content -->
-        
+          @include('partials.footer')
         <!-- /footer content -->
       </div>
     </div>

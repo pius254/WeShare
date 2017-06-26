@@ -16,7 +16,8 @@
                 <ul class="nav navbar-nav text-uppercase">
                     <li><a href="#header" class="active">Home</a></li>
                     <li><a href="#about">About</a></li>
-                    <li><a href="#registration">Register</a></li>
+                    <li><a href="#registration">Sign Up</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#login">Sign In</a></li>
                     <li><a href="#chat">ChatRoom</a></li>
                     <li><a href="#feedback">Contact Us</a></li>
                 </ul>

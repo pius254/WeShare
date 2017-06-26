@@ -35,7 +35,7 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->only('First Name', 'Last Name', 'Username', 'Phone Number', 'email', 'password');
+        $data = $request->only('first_name', 'last_name', 'username', 'phone_number', 'email', 'password');
         $data['password'] = bcrypt($data['password']);
         $user = User::create($data);
         if ($user) {

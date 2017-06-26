@@ -15,6 +15,7 @@
     <body>
 
         @include('partials.nav')
+        @include('partials.loginmodal')
 
         <!-- Header :Start -->
         <div id="header" class="fullheight">
@@ -49,66 +50,69 @@
             <div class="container">
                 <div class="row">
                     <h1 class="text-uppercase text-center wow fadeInDown animated" data-wow-delay="2s">create account</h1>
-                    <div class="col-sm-6 col-md-6">
-                        <h1><strong>REGISTER</strong></h1>
-                        {!! Form::open(array('route' => 'users.store')) !!}
+                    <div class="col-sm-12 col-md-6 col-md-offset-3">
+                        <h1><strong>SIGN UP</strong></h1>
+                        <form role="form" method="POST" action="{{ url('/doRegister') }}">
+                            {{ csrf_field() }}
 
-                        <div class="form-group">
-                            {!! Form::label('First Name') !!}
-                            {!! Form::text('First Name', null, array('class' => 'form-control')) !!}
-                        </div>
+                            <div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
+                                <input type="text" name="first_name" class="form-control" placeholder="First Name" value="{{old('first_name')}}" />
+                                    @if ($errors->has('first_name'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('first_name') }}</strong>
+                                        </span>
+                                    @endif
+                            </div>
 
-                        <div class="form-group">
-                            {!! Form::label('Last Name') !!}
-                            {!! Form::text('Last Name', null, array('class' => 'form-control')) !!}
-                        </div>
+                            <div class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }}">
+                                <input type="text" name="last_name" class="form-control" placeholder="Last Name" value="{{old('last_name')}}" />
+                                    @if ($errors->has('last_name'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('last_name') }}</strong>
+                                        </span>
+                                    @endif
+                            </div>
 
-                        <div class="form-group">
-                            {!! Form::label('Username') !!}
-                            {!! Form::text('Username', null, array('class' => 'form-control')) !!}
-                        </div>
+                            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                                <input type="text" name="email" class="form-control uname" placeholder="Username/Email" value="{{old('email')}}" />
+                                    @if ($errors->has('email'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('email') }}</strong>
+                                        </span>
+                                    @endif
+                            </div>
 
-                        <div class="form-group">
-                            {!! Form::label('Phone Number') !!}
-                            {!! Form::number('Phone Number', null, array('class' => 'form-control')) !!}
-                        </div>
+                            <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
+                                <input type="text" name="username" class="form-control" placeholder="Username" value="{{old('username')}}" />
+                                    @if ($errors->has('username'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('username') }}</strong>
+                                        </span>
+                                    @endif
+                            </div>
 
-                        <div class="form-group">
-                            {!! Form::label('email') !!}
-                            {!! Form::email('email', null, array('class' => 'form-control')) !!}
-                        </div>
+                            <div class="form-group{{ $errors->has('phone_number') ? ' has-error' : '' }}">
+                                <input type="text" name="phone_number" class="form-control" placeholder="Phone Number" value="{{old('phone_number')}}" />
+                                    @if ($errors->has('phone_number'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('phone_number') }}</strong>
+                                        </span>
+                                    @endif
+                            </div>
 
-                        <div class="form-group">
-                            {!! Form::label('password') !!}
-                            {!! Form::password('password', array('class' => 'form-control')) !!}
-                        </div>
-                            
-                            {!! Form::token() !!}
-                            {!! Form::submit('Register', array('class' => 'btn btn-primary')) !!}
-
-                        {!! Form::close() !!}
+                            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                                <input type="password" name="password" class="form-control pword" placeholder="Password" />
+                                    @if ($errors->has('password'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('password') }}</strong>
+                                        </span>
+                                    @endif
+                            </div>
+                            <button class="btn btn-success btn-block">Sign UP</button>
+                        </form>
                     </div>
 
                     <div class="clear-fix"></div>
-
-                    <div class="col-sm-4 col-md-4 col-md-offset-2">
-                        <h1><strong>LOGIN</strong></h1>
-                        {!! Form::open(array('route' => 'handleLogin')) !!}
-
-                        <div class="form-group">
-                            {!! Form::label('email') !!}
-                            {!! Form::text('email', null, array('class' => 'form-control')) !!}
-                        </div>
-                        <div class="form-group">
-                            {!! Form::label('password') !!}
-                            {!! Form::password('password', array('class' => 'form-control')) !!}
-                        </div>
-                            
-                            {!! Form::token() !!}
-                            {!! Form::submit('Log In', array('class' => 'btn btn-primary')) !!}
-
-                        {!! Form::close() !!}
-                    </div>
                 </div>
             </div>
              
