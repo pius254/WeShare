@@ -142,7 +142,7 @@
 
         <!-- page content -->
         <div class="right_col" role="main">
-          <div class="">
+          <div class="container">
             <div class="page-title">
               <div class="title_left">
                 <h3>Content <small> Goes <strong>Here</strong></small></h3>

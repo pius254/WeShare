@@ -109,6 +109,16 @@
                                         </span>
                                     @endif
                             </div>
+
+                            <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
+                                <input type="password" name="password_confirmation" class="form-control pword" placeholder="Confirm Password" />
+                                    @if ($errors->has('password_confirmation'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('password_confirmation') }}</strong>
+                                        </span>
+                                    @endif
+                            </div>
+
                             <button class="btn btn-success btn-block">Sign UP</button>
                         </form>
                     </div>

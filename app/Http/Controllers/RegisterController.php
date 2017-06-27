@@ -32,7 +32,7 @@ class RegisterController extends Controller
 				'email' => 'required|email|unique:users',
 				'username' => 'required',
 				'phone_number' => 'required',
-				'password' => 'required'
+				'password' => 'required|confirmed'
 			]);
 			$data = $request->all();
 			$data['password'] = bcrypt($data['password']);
