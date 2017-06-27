@@ -12,7 +12,7 @@ class RegisterController extends Controller
 			return view('welcome');
 		}
 
-	public function doRegister()
+	public function doRegister(Request $request)
 		{
 			// $user = new User;
 			// $user->first_name = Input::get('first_name');
@@ -26,7 +26,7 @@ class RegisterController extends Controller
 			// return View::make('thanks')->with('theEmail', $theEmail);
 
 			// Validate the form inputs
-			$this->validate(request(),[
+			$this->validate($request,[
 				'first_name' => 'required',
 				'last_name' => 'required',
 				'email' => 'required|email|unique:users',
@@ -34,12 +34,20 @@ class RegisterController extends Controller
 				'phone_number' => 'required',
 				'password' => 'required'
 			]);
+			$data = $request->all();
+			$data['password'] = bcrypt($data['password']);
+
 
 			// Create and save the user.
-			User::create(request(['first_name','last_name','email','username','phone_number','password']));
+			if(User::create($data))
+			{
+				return redirect('/#registration')->with('success','You have registered successfully!!');
+			}
+
+			return redirect('/#registration')->with('error','Ooops! Something went wrong.');
 
 			// auth()->login($user);
 
-			return back();
+			//return back();
 		}
 }

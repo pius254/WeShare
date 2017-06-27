@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\User;
 
 
 class AuthController extends Controller
@@ -18,21 +17,21 @@ class AuthController extends Controller
 
     public function handleLogin(Request $request)
     {
-    	// $data = $request->only('email', 'password');
-    	// if (\Auth::attempt($data)) {
-    	// 	//return 'You Logged in';
-    	// 	return redirect()->intended('partials.home');
-    	// }
-        if (! auth()->attempt(request(['email', 'password']))) {
-            return back()->withInput();
-        }
+    	$data = $request->only('email', 'password');
+    	if (auth()->attempt($data)) {
+    		// return 'You Logged in';
+    		return view('partials.home');
+    	}
+        // if (! auth()->attempt(request(['email', 'password']))) {
+        //     return back()->withInput();
+        // }
 
-    	return redirect('partials.home');
+    	return back()->with('error', 'Sorry!! Please check your email or password and try again!');
     }
 
     public function logout()
     {
-        \Auth::logout();
-        return redirect()->route('login');
+        auth()->logout();
+        return view('welcome');
     }
 }

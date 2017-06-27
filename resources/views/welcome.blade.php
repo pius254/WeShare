@@ -49,9 +49,10 @@
          <section id="registration" class="fullheight">
             <div class="container">
                 <div class="row">
+                @include('partials.notification')
                     <h1 class="text-uppercase text-center wow fadeInDown animated" data-wow-delay="2s">create account</h1>
-                    <div class="col-sm-12 col-md-6 col-md-offset-3">
-                        <h1><strong>SIGN UP</strong></h1>
+                    <div class="col-sm-6 col-md-6">
+                        <h1 class="text-center"><strong>SIGN UP</strong></h1>
                         <form role="form" method="POST" action="{{ url('/doRegister') }}">
                             {{ csrf_field() }}
 
@@ -74,7 +75,7 @@
                             </div>
 
                             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                <input type="text" name="email" class="form-control uname" placeholder="Username/Email" value="{{old('email')}}" />
+                                <input type="text" name="email" class="form-control uname" placeholder="Email" value="{{old('email')}}" />
                                     @if ($errors->has('email'))
                                         <span class="help-block">
                                             <strong>{{ $errors->first('email') }}</strong>
@@ -112,14 +113,69 @@
                         </form>
                     </div>
 
-                    <div class="clear-fix"></div>
+                <div class="clear-fix"></div>
+
+                <div class="col-sm-4 col-md-4 col-md-offset-2">
+                    <h1 class="text-center">Login</h1>
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/handleLogin') }}">
+                        {{ csrf_field() }}
+
+                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                            <label for="email" class="control-label"></label>
+
+                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Email Address" required autofocus>
+
+                                @if ($errors->has('email'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                        </div>
+
+                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                            <label for="password" class="control-label"></label>
+
+                                <input id="password" type="password" class="form-control" name="password" placeholder="Password" required>
+
+                                @if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                        </div>
+
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="remember"> Remember Me
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">
+                                Login
+                            </button>
+
+                            <a class="btn btn-link" href="{{ url('/password/reset') }}">
+                                Forgot Your Password?
+                            </a>
+                        </div>
+                    </form>
                 </div>
             </div>
-             
          </section>
          <!-- Registration :End -->
 
-         <div class="clear-fix"></div>
+        <div class="clear-fix"></div>
+
+         {{-- Login --}}
+        <div class="container">
+            <div class="row">
+              
+            </div>
+        </div>
+        {{-- End: Login --}}
 
         @include('partials.footer')
 
