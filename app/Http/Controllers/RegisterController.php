@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
+use App\Model\User;
 
 class RegisterController extends Controller
 {
@@ -30,7 +30,7 @@ class RegisterController extends Controller
 				'first_name' => 'required',
 				'last_name' => 'required',
 				'email' => 'required|email|unique:users',
-				'username' => 'required',
+				'username' => 'required|unique:users',
 				'phone_number' => 'required',
 				'password' => 'required|confirmed'
 			]);
@@ -49,5 +49,21 @@ class RegisterController extends Controller
 			// auth()->login($user);
 
 			//return back();
+		}
+
+	public function update(Request $request, User $user)
+		{
+			$this->validate($request,[
+				'old_password' => 'required',
+				'new_password' => 'required|confirmed'
+			]);
+			$data = $request->all();
+			$data['new_password'] = bcrypt($data['new_password']);
+
+			if ($user->update($data)) {
+				return back()->with('success', 'successfully Updated');
+			}
+
+			return back()->with('danger', 'Sorry!! Something went wrong');
 		}
 }

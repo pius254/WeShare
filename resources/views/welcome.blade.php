@@ -127,7 +127,7 @@
 
                 <div class="col-sm-4 col-md-4 col-md-offset-2">
                     <h1 class="text-center">Login</h1>
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/handleLogin') }}">
+                    <form role="form" method="POST" action="{{ url('/dashboard') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
@@ -163,7 +163,7 @@
                         </div>
 
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary">
+                            <button type="submit" class="btn btn-success">
                                 Login
                             </button>
 
